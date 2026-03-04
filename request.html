@@ -3,7 +3,9 @@ layout: default
 title: Request Tapes
 ---
 
-<div class="request-page">
+<div class="request-page" 
+     data-tape-types='{{ site.data.tape_options.tape_types | jsonify }}'
+     data-dolby-options='{{ site.data.tape_options.dolby_options | jsonify }}'>
   <h1>Request Tapes</h1>
   
   <div class="request-intro">
@@ -43,26 +45,34 @@ title: Request Tapes
     <p class="preferences-intro">To help you know what to make in exchange, here's what {{ site.data.settings.owner.name }} enjoys:</p>
     <div class="preferences-list">
       <div class="preference-item">
-        <h4>Favorite Genres</h4>
-        <p>{{ site.data.settings.owner.bio }}</p>
+        <h4>Favorite Genres & Artists</h4>
+        <ul>
+          {% for preference in site.data.settings.owner.genre_preferences %}
+          <li>{{ preference }}</li>
+          {% endfor %}
+        </ul>
       </div>
       <div class="preference-item">
         <h4>Preferred Tape Types</h4>
         <ul>
-          {% for tape_type in site.data.tape_options.tape_types %}
-            {% if tape_type.available %}
-            <li>{{ tape_type.name }}</li>
-            {% endif %}
+          {% for pref_type in site.data.settings.owner.preferred_tape_types %}
+            {% for tape_type in site.data.tape_options.tape_types %}
+              {% if tape_type.value == pref_type %}
+              <li>{{ tape_type.name }}</li>
+              {% endif %}
+            {% endfor %}
           {% endfor %}
         </ul>
       </div>
       <div class="preference-item">
         <h4>Dolby NR Preferences</h4>
         <ul>
-          {% for dolby in site.data.tape_options.dolby_options %}
-            {% if dolby.available %}
-            <li>{{ dolby.name }}</li>
-            {% endif %}
+          {% for pref_dolby in site.data.settings.owner.preferred_dolby_options %}
+            {% for dolby in site.data.tape_options.dolby_options %}
+              {% if dolby.value == pref_dolby %}
+              <li>{{ dolby.name }}</li>
+              {% endif %}
+            {% endfor %}
           {% endfor %}
         </ul>
       </div>
@@ -89,7 +99,7 @@ title: Request Tapes
         
         <div class="form-group">
           <label for="your-genres">Genres You Can Make</label>
-          <div class="checkbox-group">
+          <div class="checkbox-group checkbox-columns">
             {% for genre in site.data.tape_options.genres %}
             <label class="checkbox-label">
               <input type="checkbox" name="your-genre" value="{{ genre }}">
@@ -140,7 +150,7 @@ title: Request Tapes
           <textarea id="custom-inspiration" 
                     name="custom-inspiration" 
                     rows="4" 
-                    placeholder="E.g., 'Something like Radiohead's OK Computer, but more upbeat' or 'Chill electronic music for studying'"></textarea>
+                    placeholder="E.g., My favorite bands are The Cure and BTS, and I don't like X genre"></textarea>
         </div>
       </section>
       

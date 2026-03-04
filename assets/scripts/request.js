@@ -49,17 +49,22 @@
     }
     
     // Get tape options from page data attributes (Jekyll injects them)
-    const tapeTypesJson = document.documentElement.getAttribute('data-tape-types') || '[]';
-    const dolbyOptionsJson = document.documentElement.getAttribute('data-dolby-options') || '[]';
-    
+    const requestPage = document.querySelector('.request-page');
     let tapeTypes = [];
     let dolbyOptions = [];
     
     try {
-      tapeTypes = JSON.parse(tapeTypesJson);
-      dolbyOptions = JSON.parse(dolbyOptionsJson);
+      const tapeTypesData = requestPage?.getAttribute('data-tape-types');
+      const dolbyOptionsData = requestPage?.getAttribute('data-dolby-options');
+      
+      if (tapeTypesData) {
+        tapeTypes = JSON.parse(tapeTypesData).filter(t => t.available);
+      }
+      if (dolbyOptionsData) {
+        dolbyOptions = JSON.parse(dolbyOptionsData).filter(d => d.available);
+      }
     } catch (e) {
-      console.warn('Could not parse tape options from page');
+      console.warn('Could not parse tape options from page', e);
     }
     
     container.innerHTML = selectedTapes.map(tape => `
@@ -74,9 +79,7 @@
             <label for="tape-type-${tape.slug}">Tape Type (optional)</label>
             <select id="tape-type-${tape.slug}" class="tape-type-select" data-slug="${tape.slug}">
               <option value="">No preference</option>
-              <option value="Type I">Type I (Normal/Ferric)</option>
-              <option value="Type II">Type II (Chrome)</option>
-              <option value="Type IV">Type IV (Metal)</option>
+              ${tapeTypes.map(type => `<option value="${type.value}">${type.name}</option>`).join('')}
             </select>
           </div>
           
@@ -84,10 +87,7 @@
             <label for="dolby-${tape.slug}">Dolby NR (optional)</label>
             <select id="dolby-${tape.slug}" class="dolby-select" data-slug="${tape.slug}">
               <option value="">No preference</option>
-              <option value="none">No Dolby NR</option>
-              <option value="Dolby B">Dolby B</option>
-              <option value="Dolby C">Dolby C</option>
-              <option value="Dolby S">Dolby S</option>
+              ${dolbyOptions.map(dolby => `<option value="${dolby.value}">${dolby.name}</option>`).join('')}
             </select>
           </div>
         </div>
@@ -230,11 +230,13 @@
         const dolbySelect = document.getElementById(`dolby-${tape.slug}`);
         
         if (tapeTypeSelect && tapeTypeSelect.value) {
-          text += `     Tape Type: ${tapeTypeSelect.value}\n`;
+          const selectedOption = tapeTypeSelect.options[tapeTypeSelect.selectedIndex];
+          text += `     Tape Type: ${selectedOption.text}\n`;
         }
         
         if (dolbySelect && dolbySelect.value) {
-          text += `     Dolby NR: ${dolbySelect.value}\n`;
+          const selectedOption = dolbySelect.options[dolbySelect.selectedIndex];
+          text += `     Dolby NR: ${selectedOption.text}\n`;
         }
       });
       text += '\n' + '-'.repeat(60) + '\n\n';

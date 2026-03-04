@@ -5,6 +5,24 @@ owner:
   name: "Your Name"
   email: "your.email@example.com"
   bio: "Music enthusiast sharing mixtapes since 199X. Specializing in indie rock, post-punk, and ambient soundscapes."
+  
+  # Genre preferences for "What I Love" section
+  genre_preferences:
+    - "New Wave: The Cure, New Order, Depeche Mode"
+    - "Indie Rock: Pavement, Guided by Voices, Built to Spill"
+    - "Post-Punk: Joy Division, Gang of Four, Wire"
+    - "Shoegaze: My Bloody Valentine, Slowdive, Ride"
+    - "Ambient: Brian Eno, Stars of the Lid, Tim Hecker"
+  
+  # Tape types you prefer to receive (use values from tape_options.yml)
+  preferred_tape_types:
+    - "type_i"
+    - "type_ii"
+  
+  # Dolby options you prefer to receive (use values from tape_options.yml)
+  preferred_dolby_options:
+    - "none"
+    - "dolby_b"
 
 # Exchange policy
 policy:
@@ -12,14 +30,14 @@ policy:
   guidelines:
     - "I will ship to X, Y, and Z countries"
     - "Allow 2-4 weeks for processing and shipping"
-    - "I prefer 1:1 tape exchanges. If you don't have tapes to exchange, I can provide blank tapes for a small fee (see charges below)"
+    - "I prefer 1:1 tape exchanges. If you don't have tapes to exchange, I can provide the tapes for a small fee (see charges below)"
   
   # Monetary policy for special tape types
   charges:
     type_i: "Free for Type I (normal/ferric) per tape"
     type_ii: "$2 for Type II (chrome) per tape (or free for exchanges)"
     type_iv: "Not available"
-    shipping: "I ship media mail or USPS ground, which is usually around $5-$10 depending on location and tape quantity. For exchanges we each cover our own costs."
+    shipping: "$5-$10 depending on location and tape quantity with USPS media mail or ground shipping. For exchanges we each cover our own costs."
 
 # Theme customization
 theme:

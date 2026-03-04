@@ -684,6 +684,52 @@ main {
   margin-bottom: var(--spacing-sm);
 }
 
+.creator-preferences {
+  background-color: var(--color-white);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-small);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.creator-preferences h2 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.preferences-intro {
+  margin-bottom: var(--spacing-lg);
+  color: var(--color-gray-dark);
+}
+
+.preferences-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.preference-item h4 {
+  color: var(--color-secondary);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.1rem;
+}
+
+.preference-item ul {
+  padding-left: var(--spacing-lg);
+  list-style-type: disc;
+}
+
+.preference-item li {
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .preferences-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 .request-form-container {
   background-color: var(--color-white);
   padding: var(--spacing-2xl);
@@ -729,8 +775,47 @@ main {
   border-radius: var(--border-radius-small);
   margin-bottom: var(--spacing-sm);
   display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.tape-title-row {
+  display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.tape-options-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  padding-top: var(--spacing-sm);
+}
+
+.option-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.option-group label {
+  font-size: var(--font-size-small);
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-gray-dark);
+}
+
+.option-group select {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-gray-medium);
+  border-radius: var(--border-radius-small);
+  background-color: var(--color-white);
+  font-size: var(--font-size-small);
+}
+
+@media (max-width: 768px) {
+  .tape-options-row {
+    grid-template-columns: 1fr;
+  }
 }
 
 .selected-tape-item strong {
@@ -782,6 +867,18 @@ main {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-sm);
+}
+
+.checkbox-group.checkbox-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--spacing-sm) var(--spacing-lg);
+}
+
+@media (max-width: 768px) {
+  .checkbox-group.checkbox-columns {
+    grid-template-columns: 1fr;
+  }
 }
 
 .checkbox-label,
