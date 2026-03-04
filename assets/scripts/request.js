@@ -113,9 +113,10 @@
     const formContainer = document.querySelector('.request-form-container');
     const openEmailBtn = document.getElementById('open-email');
     
-    // Hide form first
-    if (formContainer) {
-      formContainer.style.display = 'none';
+    // Hide only the form, not the entire container
+    const form = document.getElementById('request-form');
+    if (form) {
+      form.style.display = 'none';
     }
     
     // Set the output text
@@ -282,15 +283,15 @@
   
   function editRequest() {
     const outputSection = document.getElementById('output-section');
-    const formContainer = document.querySelector('.request-form-container');
+    const form = document.getElementById('request-form');
     
     if (outputSection) {
       outputSection.style.display = 'none';
     }
     
-    if (formContainer) {
-      formContainer.style.display = 'block';
-      formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (form) {
+      form.style.display = 'block';
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 })();
