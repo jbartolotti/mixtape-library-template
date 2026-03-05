@@ -30,33 +30,25 @@ dolby_options:
   
   - name: "Dolby C"
     value: "dolby_c"
-    available: false
+    available: true
   
   - name: "Dolby S"
     value: "dolby_s"
-    available: false
+    available: true
 
 # Standard tape lengths available
 tape_lengths:
-  - "60 minutes"
+  - "45 minutes (Type 1 Only)"
+  - "60 minutes (Type 1 Only)"
   - "90 minutes"
-  - "120 minutes"
 
 # Genre categories for custom requests
 genres:
-  - "Alternative / Indie Rock"
-  - "Post-Punk / New Wave"
-  - "Shoegaze / Dream Pop"
-  - "Electronic / IDM"
-  - "Ambient / Experimental"
-  - "Hip-Hop / Rap"
-  - "R&B / Soul"
-  - "Jazz / Fusion"
-  - "Folk / Americana"
-  - "Metal / Hard Rock"
-  - "Punk / Hardcore"
-  - "Pop"
-  - "Classical"
-  - "World Music"
-  - "Soundtrack / Score"
-  - "Other (specify in notes)"
+  - "New Wave"
+  - "Synth-Pop"
+  - "City Pop"
+  - "World: Jpop, Kpop, French Pop"
+  - "Alternative"
+  - "Indie Rock"
+  - "Shoegaze"
+  - "Electronic"
