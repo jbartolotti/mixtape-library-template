@@ -8,7 +8,7 @@ description: "A catalog of cassette mixtapes available for copying and exchange.
 # If hosted at yourusername.github.io/my-mixtapes/, use: /my-mixtapes/
 # If hosted at yourusername.github.io/, use: (empty)
 # If hosted at custom domain, use: (empty)
-baseurl: "/mixtape-library-template"
+baseurl: "/mixtape-library"
 url: ""
 
 # Collections
