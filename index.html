@@ -7,8 +7,7 @@ title: Mixtape Library
 {% assign all_tags = "" %}
 {% for tape in sorted_tapes %}
   {% if tape.tags %}
-    {% assign tape_tags = tape.tags | split: "," %}
-    {% for tag in tape_tags %}
+    {% for tag in tape.tags %}
       {% assign clean_tag = tag | strip | downcase %}
       {% if clean_tag != "" %}
         {% assign all_tags = all_tags | append: clean_tag | append: "|" %}
@@ -64,7 +63,7 @@ title: Mixtape Library
 <div id="catalog-view" class="catalog-view active">
   <div class="tape-grid">
     {% for tape in sorted_tapes %}
-    <div class="tape-card" data-tape-id="{{ tape.slug }}" data-tags="{% if tape.tags %}{% for tag in tape.tags | split: ',' %}{% assign clean_tag = tag | strip | downcase %}{% if clean_tag != '' %}{{ clean_tag }}|{% endif %}{% endfor %}{% endif %}">
+    <div class="tape-card" data-tape-id="{{ tape.slug }}" data-tags="{% if tape.tags %}{% for tag in tape.tags %}{% assign clean_tag = tag | strip | downcase %}{% if clean_tag != '' %}{{ clean_tag }}|{% endif %}{% endfor %}{% endif %}">
       <div class="tape-card-inner">
         <a href="{{ tape.url | relative_url }}" class="tape-image-link">
           <div class="tape-image-wrapper">
@@ -95,7 +94,7 @@ title: Mixtape Library
 
           {% if tape.tags %}
           <div class="tape-tags">
-            {% for tag in tape.tags | split: "," %}
+            {% for tag in tape.tags %}
               {% assign clean_tag = tag | strip %}
               {% if clean_tag != "" %}
               <span class="tape-tag">{{ clean_tag }}</span>
@@ -131,7 +130,7 @@ title: Mixtape Library
 <!-- List View -->
 <div id="list-view" class="list-view">
   {% for tape in sorted_tapes %}
-  <div class="tape-list-item" data-tape-id="{{ tape.slug }}" data-tags="{% if tape.tags %}{% for tag in tape.tags | split: ',' %}{% assign clean_tag = tag | strip | downcase %}{% if clean_tag != '' %}{{ clean_tag }}|{% endif %}{% endfor %}{% endif %}">
+  <div class="tape-list-item" data-tape-id="{{ tape.slug }}" data-tags="{% if tape.tags %}{% for tag in tape.tags %}{% assign clean_tag = tag | strip | downcase %}{% if clean_tag != '' %}{{ clean_tag }}|{% endif %}{% endfor %}{% endif %}">
     <div class="tape-list-image">
       {% if tape.front_image %}
       <img src="{{ '/images/' | append: tape.front_image | relative_url }}" 
@@ -151,7 +150,7 @@ title: Mixtape Library
 
       {% if tape.tags %}
       <div class="tape-tags">
-        {% for tag in tape.tags | split: "," %}
+        {% for tag in tape.tags %}
           {% assign clean_tag = tag | strip %}
           {% if clean_tag != "" %}
           <span class="tape-tag">{{ clean_tag }}</span>
