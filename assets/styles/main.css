@@ -234,9 +234,7 @@ main {
    ======================================== */
 .view-controls {
   display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-  align-items: flex-start;
+  gap: var(--spacing-md);
 }
 
 .tag-filter-controls {
