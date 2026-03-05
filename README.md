@@ -1,6 +1,6 @@
 # Mixtape Library Template
 
-A clean, forkable GitHub Pages template for cataloging and sharing your cassette mixtape collection. Built with Jekyll.
+A clean, forkable GitHub Pages template for cataloging and sharing your cassette mixtape collection. Built with Jekyll. Coded with AI assistance.
 
 ## Features
 
@@ -16,6 +16,7 @@ A clean, forkable GitHub Pages template for cataloging and sharing your cassette
 ### 1. Fork & Enable GitHub Pages
 
 1. Click **Fork** at the top right (rename if desired)
+   - **Note:** If you rename the fork, you must also update the `baseurl` field in `_config.yml` to match your new repo name (e.g., `baseurl: "/my-mixtapes"`). If you keep the default name, no changes needed.
 2. Go to **Settings** → **Pages**
 3. Under Source, select **main** branch and **/ (root)** folder
 4. Click **Save**
@@ -74,7 +75,6 @@ tracklist:
 ---
 ```
 
-Tags should be a YAML list (same style as `tracklist`) in each tape file. The catalog automatically builds filter options from these tags.
 
 ### 4. Add Images
 

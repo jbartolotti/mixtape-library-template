@@ -2,7 +2,7 @@
 # Jekyll configuration
 
 title: "Mixtape Library"
-description: "A catalog of cassette mixtapes available for borrowing"
+description: "A catalog of cassette mixtapes available for copying and exchange."
 
 # IMPORTANT: Set baseurl to your repository name for GitHub Pages
 # If hosted at yourusername.github.io/my-mixtapes/, use: /my-mixtapes/
