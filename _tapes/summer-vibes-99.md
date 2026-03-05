@@ -3,7 +3,11 @@ title: "Summer Vibes '99"
 author: "unknown"
 length: "90 minutes"
 genre: "Pop / R&B"
-tags: "pop, r&b, found media, 90s"
+tags:
+  - "pop"
+  - "r&b"
+  - "found media"
+  - "90s"
 description: "Found at a yard sale! A time capsule of late 90s pop hits. Someone had great taste in summer jams."
 requestable: false
 tape_type: "Type I"

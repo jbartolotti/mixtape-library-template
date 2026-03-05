@@ -3,7 +3,10 @@ title: "Underground Frequencies"
 author: "self"
 length: "60 minutes"
 genre: "Post-Punk / New Wave"
-tags: "post-punk, new wave, 80s"
+tags:
+  - "post-punk"
+  - "new wave"
+  - "80s"
 description: "Angular guitars, driving basslines, and detached vocals from the post-punk era. A tribute to the dark energy of late 70s/early 80s."
 requestable: true
 tape_type: "Type I"

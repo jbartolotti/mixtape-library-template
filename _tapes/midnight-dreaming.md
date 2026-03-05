@@ -3,7 +3,9 @@ title: "Midnight Dreaming"
 author: "self"
 length: "90 minutes"
 genre: "Shoegaze / Dream Pop"
-tags: "shoegaze, dream pop"
+tags:
+  - "shoegaze"
+  - "dream pop"
 description: "A hazy journey through reverb-soaked guitars and ethereal vocals. Perfect for late-night drives or introspective moments."
 requestable: true
 tape_type: "Type II"

@@ -59,7 +59,9 @@ title: "Midnight Dreaming"
 author: "self"
 length: "90 minutes"
 genre: "Shoegaze / Dream Pop"
-tags: "shoegaze, dream pop"
+tags:
+  - "shoegaze"
+  - "dream pop"
 description: "A hazy journey through reverb-soaked guitars..."
 requestable: true
 tape_type: "Type II"
@@ -72,7 +74,7 @@ tracklist:
 ---
 ```
 
-Tags should be a comma-separated list in each tape file. The catalog automatically builds filter options from these tags.
+Tags should be a YAML list (same style as `tracklist`) in each tape file. The catalog automatically builds filter options from these tags.
 
 ### 4. Add Images
 

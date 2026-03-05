@@ -3,7 +3,9 @@ title: "Sonic Experiments Vol. 1"
 author: "self"
 length: "120 minutes"
 genre: "Ambient / Experimental"
-tags: "ambient, experimental"
+tags:
+  - "ambient"
+  - "experimental"
 description: "An extended exploration of texture and space. Minimal beats, field recordings, and droning synthesizers. Best experienced with headphones in a quiet environment."
 requestable: true
 tape_type: "Type II"
