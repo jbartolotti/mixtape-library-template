@@ -10,7 +10,7 @@ description: "An energetic, moody mix drawing heavily on video game music, along
 requestable: true
 tape_type: "Type II"
 dolby: "None"
-front_image: "sunwave-and-moontide-front.jpg"
+front_image: "sunwave-and-moontide-front.png"
 back_image: ""
 tracklist:
   - title: "A"
