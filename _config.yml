@@ -16,12 +16,20 @@ collections:
   tapes:
     output: true
     permalink: /tape/:slug/
+  sample_tapes:
+    output: true
+    permalink: /tape/:slug/
 
 # Defaults
 defaults:
   - scope:
       path: ""
       type: "tapes"
+    values:
+      layout: "tape"
+  - scope:
+      path: ""
+      type: "sample_tapes"
     values:
       layout: "tape"
 

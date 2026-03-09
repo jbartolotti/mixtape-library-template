@@ -93,7 +93,8 @@ Save cover photos to `/images/` matching your tape filenames. Recommended: 600x9
 
 - **`_data/settings.yml`** - Your info, theme colors, exchange policies
 - **`_data/tape_options.yml`** - Available tape types, Dolby options, genres
-- **`_tapes/`** - Add your tape markdown files here
+- **`_tapes/`** - Add your personal tape markdown files here (takes precedence over `sample_tapes/`)
+- **`sample_tapes/`** - Example tapes; only used if `_tapes/` is empty
 - **`images/`** - Add your tape cover photos here
 
 ## Local Development (Optional)
@@ -108,7 +109,7 @@ bundle exec jekyll serve
 
 ## Updating from Template
 
-To pull template improvements into your fork:
+To pull template improvements into your fork without conflicts:
 
 ```bash
 git remote add upstream https://github.com/jbartolotti/mixtape-library-template.git
@@ -116,7 +117,10 @@ git fetch upstream
 git merge upstream/main
 ```
 
-Your content in `_tapes/`, `images/`, and `_data/settings.yml` won't be affected.
+**Important:** If you've added tapes to `_tapes/`, the template will automatically use those instead of the sample tapes in `sample_tapes/`. This means:
+- Your personal tapes are never overwritten during merges
+- Template updates to `sample_tapes/` won't conflict with your content
+- If you delete all your personal tapes, the catalog will display `sample_tapes/` as a fallback
 
 ## Troubleshooting
 

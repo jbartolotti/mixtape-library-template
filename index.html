@@ -3,7 +3,11 @@ layout: default
 title: Mixtape Library
 ---
 
-{% assign sorted_tapes = site.tapes | sort: "title" %}
+{% if site.tapes.size > 0 %}
+  {% assign sorted_tapes = site.tapes | sort: "title" %}
+{% else %}
+  {% assign sorted_tapes = site.sample_tapes | sort: "title" %}
+{% endif %}
 {% assign all_tags = "" %}
 {% for tape in sorted_tapes %}
   {% if tape.tags %}
