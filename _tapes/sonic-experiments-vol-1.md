@@ -1,6 +1,7 @@
 ---
 title: "Sonic Experiments Vol. 1"
 author: "self"
+date: "2024"
 length: "120 minutes"
 genre: "Ambient / Experimental"
 tags:

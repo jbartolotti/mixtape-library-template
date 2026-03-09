@@ -58,6 +58,7 @@ Create markdown files in `_tapes/`, one for each tape:
 ---
 title: "Midnight Dreaming"
 author: "self"
+date: "2023-04-03"
 length: "90 minutes"
 genre: "Shoegaze / Dream Pop"
 tags:
@@ -70,10 +71,18 @@ dolby: "Dolby B"
 front_image: "midnight-dreaming-front.jpg"
 back_image: "midnight-dreaming-back.jpg"
 tracklist:
-  - "Slowdive - Alison"
-  - "My Bloody Valentine - When You Sleep"
+  - title: "Side A"
+    tracks:
+      - "Slowdive - Alison"
+      - "My Bloody Valentine - When You Sleep"
+  - title: "Side B"
+    tracks:
+      - "Cocteau Twins - Cherry-Coloured Funk"
+      - "Ride - Vapour Trail"
 ---
 ```
+
+`tracklist` supports either a simple flat list, or grouped sections (`title` + `tracks`) for A/B sides.
 
 
 ### 4. Add Images

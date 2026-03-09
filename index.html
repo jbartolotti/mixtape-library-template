@@ -189,11 +189,25 @@ title: Mixtape Library
     
     <div class="tape-list-tracklist">
       <h4>Tracklist</h4>
-      <ol>
-        {% for track in tape.tracklist %}
-        <li>{{ track }}</li>
+      {% assign first_track = tape.tracklist | first %}
+      {% if first_track and first_track.tracks %}
+        {% for section in tape.tracklist %}
+        <div class="tracklist-subsection compact">
+          <h5>{{ section.title }}</h5>
+          <ol>
+            {% for track in section.tracks %}
+            <li>{{ track }}</li>
+            {% endfor %}
+          </ol>
+        </div>
         {% endfor %}
-      </ol>
+      {% else %}
+        <ol>
+          {% for track in tape.tracklist %}
+          <li>{{ track }}</li>
+          {% endfor %}
+        </ol>
+      {% endif %}
     </div>
   </div>
   {% endfor %}

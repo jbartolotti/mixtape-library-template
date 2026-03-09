@@ -581,6 +581,24 @@ main {
   font-size: 1rem;
 }
 
+.tracklist-subsection {
+  margin-bottom: var(--spacing-lg);
+}
+
+.tracklist-subsection:last-child {
+  margin-bottom: 0;
+}
+
+.tracklist-subsection h3,
+.tracklist-subsection h5 {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-primary);
+}
+
+.tracklist-subsection.compact h5 {
+  font-size: var(--font-size-small);
+}
+
 .tape-list-tracklist ol {
   padding-left: var(--spacing-lg);
   font-size: var(--font-size-small);

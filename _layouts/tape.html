@@ -80,6 +80,14 @@ layout: default
             <span class="metadata-label">Source</span>
             <span class="metadata-value">{{ page.author }}</span>
           </div>
+
+          {% assign tape_date = page.date_recorded | default: page.date %}
+          {% if tape_date and tape_date != "" %}
+          <div class="metadata-item">
+            <span class="metadata-label">Date</span>
+            <span class="metadata-value">{{ tape_date }}</span>
+          </div>
+          {% endif %}
           
           <div class="metadata-item">
             <span class="metadata-label">Length</span>
@@ -133,11 +141,25 @@ layout: default
         
         <div class="tape-tracklist-section">
           <h2>Tracklist</h2>
-          <ol class="tracklist">
-            {% for track in page.tracklist %}
-            <li>{{ track }}</li>
+          {% assign first_track = page.tracklist | first %}
+          {% if first_track and first_track.tracks %}
+            {% for section in page.tracklist %}
+            <div class="tracklist-subsection">
+              <h3>{{ section.title }}</h3>
+              <ol class="tracklist">
+                {% for track in section.tracks %}
+                <li>{{ track }}</li>
+                {% endfor %}
+              </ol>
+            </div>
             {% endfor %}
-          </ol>
+          {% else %}
+            <ol class="tracklist">
+              {% for track in page.tracklist %}
+              <li>{{ track }}</li>
+              {% endfor %}
+            </ol>
+          {% endif %}
         </div>
       </div>
     </div>

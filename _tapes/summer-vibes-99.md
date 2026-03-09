@@ -1,6 +1,7 @@
 ---
 title: "Summer Vibes '99"
 author: "unknown"
+date: "obtained 2023-06"
 length: "90 minutes"
 genre: "Pop / R&B"
 tags:
