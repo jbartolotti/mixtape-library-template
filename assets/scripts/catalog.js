@@ -12,6 +12,7 @@
   document.addEventListener('DOMContentLoaded', init);
   
   function init() {
+    setupGridImageOrientation();
     setupViewToggle();
     setupTagFilters();
     setupCheckboxes();
@@ -20,6 +21,63 @@
     restoreViewPreference();
     restoreTagFilters();
     applyTagFilters();
+  }
+
+  function setupGridImageOrientation() {
+    const gridImages = document.querySelectorAll('.js-grid-image');
+
+    if (!gridImages.length) return;
+
+    gridImages.forEach(image => {
+      if (image.complete) {
+        updateGridImageOrientation(image);
+      } else {
+        image.addEventListener('load', () => updateGridImageOrientation(image), { once: true });
+      }
+    });
+
+    window.addEventListener('resize', debounce(() => {
+      gridImages.forEach(updateGridImageOrientation);
+    }, 100));
+  }
+
+  function updateGridImageOrientation(image) {
+    if (!image || !image.naturalWidth || !image.naturalHeight) return;
+
+    const wrapper = image.closest('.tape-image-wrapper');
+    if (!wrapper) return;
+
+    image.classList.remove('is-landscape-rotated');
+    image.style.width = '';
+    image.style.height = '';
+    image.style.transform = '';
+
+    if (image.naturalWidth <= image.naturalHeight) {
+      return;
+    }
+
+    const wrapperWidth = wrapper.clientWidth;
+    const wrapperHeight = wrapper.clientHeight;
+
+    if (!wrapperWidth || !wrapperHeight) return;
+
+    const ratio = image.naturalWidth / image.naturalHeight;
+    const baseHeight = Math.max(wrapperWidth, wrapperHeight / ratio);
+    const baseWidth = baseHeight * ratio;
+
+    image.classList.add('is-landscape-rotated');
+    image.style.width = `${baseWidth}px`;
+    image.style.height = `${baseHeight}px`;
+    image.style.transform = 'rotate(90deg)';
+  }
+
+  function debounce(fn, delay) {
+    let timeoutId;
+
+    return function debounced(...args) {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => fn.apply(this, args), delay);
+    };
   }
   
   // ========================================

@@ -5,6 +5,7 @@ A clean, forkable GitHub Pages template for cataloging and sharing your cassette
 ## Features
 
 - **Dual View Modes**: Grid view with hover previews and detailed list view
+
 - **Tag Filtering**: Filter catalog/list by one or more tape tags
 - **Request Generator**: Client-side form that creates formatted email text
 - **Easy Content Management**: Add tapes via simple markdown files
@@ -46,8 +47,8 @@ policy:
 genre_preferences:  # List your favorite genres/artists so people know what to make for you in an exchange
   - "Shoegaze: Slowdive, My Bloody Valentine"
   
-preferred_tape_types: ["Type II"]  # Your preferred formats when people send tapes to you
-dolby_options: ["Dolby B", "Dolby C"]
+preferred_tape_types: ["type_ii"]  # Your preferred formats when people send tapes to you. Use values from _data/tape_options.yml
+preferred_dolby_options: ["dolby_b"]
 ```
 
 ### 3. Add Your Tapes
@@ -87,7 +88,9 @@ Use `date_recorded` for date text (avoid Jekyll's reserved `date` key). `trackli
 
 ### 4. Add Images
 
-Save cover photos to `/images/` matching your tape filenames. Recommended: 600x900px (2:3 vertical aspect ratio), JPEG format. Up to two images per tape are supported. Leave the back_image field blank in the tape markdown file to omit.
+Save cover photos to `/images/` matching your tape filenames. Up to two images per tape are supported, and both vertical and horizontal artwork are supported. Leave the back_image field blank in the tape markdown file to omit.
+
+Grid cards always display art in a vertical orientation. If you upload horizontal artwork, the grid view rotates it automatically while the list view and tape detail page display the original orientation.
 
 ## Key Files
 

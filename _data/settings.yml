@@ -37,6 +37,7 @@ policy:
     type_i: "Free for Type I"
     type_ii: "$2 for Type II per tape (or free for exchanges)"
     type_iv: "Not available"
+    digital_file: "Free - I'll send audio files for you to record yourself"
     shipping: "$5-$10 depending on location and tape quantity with USPS media mail or ground shipping. For exchanges we each cover our own costs."
     payment: "I accept PayPal g+s for tape purchases to cover the cost of blanks and shipping. Don't send any money until I confirm your request! For exchanges, I prefer equivalent swaps with no additional payment on either side."
 

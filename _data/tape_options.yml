@@ -18,6 +18,11 @@ tape_types:
     available: false
     cost: "$10"
 
+  - name: "Digital File"
+    value: "digital_file"
+    available: true
+    cost: "Free"
+
 # Dolby noise reduction options you can provide
 dolby_options:
   - name: "No Dolby NR"

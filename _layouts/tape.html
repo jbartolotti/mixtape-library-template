@@ -52,10 +52,12 @@ layout: default
         {% if page.front_image %}
         <div class="tape-image-large">
           {% if page.collection == 'sample_tapes' %}
-            <img src="{{ page.front_image | relative_url }}" 
+            <img src="{{ page.front_image | relative_url }}"
+              class="tape-image-native"
                  alt="{{ page.title }} - Front">
           {% else %}
-            <img src="{{ '/images/' | append: page.front_image | relative_url }}" 
+            <img src="{{ '/images/' | append: page.front_image | relative_url }}"
+              class="tape-image-native"
                  alt="{{ page.title }} - Front">
           {% endif %}
           <p class="image-caption">Front</p>
@@ -65,10 +67,12 @@ layout: default
         {% if page.back_image and page.back_image != "" %}
         <div class="tape-image-large">
           {% if page.collection == 'sample_tapes' %}
-            <img src="{{ page.back_image | relative_url }}" 
+            <img src="{{ page.back_image | relative_url }}"
+              class="tape-image-native"
                  alt="{{ page.title }} - Back">
           {% else %}
-            <img src="{{ '/images/' | append: page.back_image | relative_url }}" 
+            <img src="{{ '/images/' | append: page.back_image | relative_url }}"
+              class="tape-image-native"
                  alt="{{ page.title }} - Back">
           {% endif %}
           <p class="image-caption">Back</p>

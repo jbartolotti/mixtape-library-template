@@ -211,7 +211,7 @@
     
     // Global format preferences
     text += 'FORMAT PREFERENCES (APPLIES TO ALL REQUESTS):\n\n';
-    text += `  Tape Type: ${requestTapeType ? requestTapeTypeSelect.options[requestTapeTypeSelect.selectedIndex].text : 'No preference'}\n`;
+    text += `  Preferred Format: ${requestTapeType ? requestTapeTypeSelect.options[requestTapeTypeSelect.selectedIndex].text : 'No preference'}\n`;
     text += `  Dolby NR: ${requestDolby ? requestDolbySelect.options[requestDolbySelect.selectedIndex].text : 'No preference'}\n`;
     text += '\n' + '-'.repeat(60) + '\n\n';
 

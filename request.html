@@ -35,6 +35,9 @@ title: Request Tapes
         {% if site.data.settings.policy.charges.type_iv %}
         <li><strong>Type IV tapes:</strong> {{ site.data.settings.policy.charges.type_iv }}</li>
         {% endif %}
+        {% if site.data.settings.policy.charges.digital_file %}
+        <li><strong>Digital file:</strong> {{ site.data.settings.policy.charges.digital_file }}</li>
+        {% endif %}
         {% if site.data.settings.policy.charges.shipping %}
         <li><strong>Shipping:</strong> {{ site.data.settings.policy.charges.shipping }}</li>
         {% endif %}
@@ -94,7 +97,7 @@ title: Request Tapes
         <h3>Format Preferences (Applies to All Requests)</h3>
         <div class="form-row">
           <div class="form-group">
-            <label for="request-tape-type">Tape Type (optional)</label>
+            <label for="request-tape-type">Preferred Format (optional)</label>
             <select id="request-tape-type" name="request-tape-type">
               <option value="">No preference</option>
               {% for tape_type in site.data.tape_options.tape_types %}

@@ -84,11 +84,11 @@ title: Mixtape Library
             {% if tape.collection == 'sample_tapes' %}
               <img src="{{ tape.front_image | relative_url }}" 
                    alt="{{ tape.title }}" 
-                   class="tape-image">
+                   class="tape-image tape-image-grid js-grid-image">
             {% else %}
               <img src="{{ '/images/' | append: tape.front_image | relative_url }}" 
                    alt="{{ tape.title }}" 
-                   class="tape-image">
+                   class="tape-image tape-image-grid js-grid-image">
             {% endif %}
             {% else %}
             <div class="tape-placeholder">
@@ -153,10 +153,12 @@ title: Mixtape Library
     <div class="tape-list-image">
       {% if tape.front_image %}
       {% if tape.collection == 'sample_tapes' %}
-        <img src="{{ tape.front_image | relative_url }}" 
+        <img src="{{ tape.front_image | relative_url }}"
+             class="tape-image-native"
              alt="{{ tape.title }}">
       {% else %}
-        <img src="{{ '/images/' | append: tape.front_image | relative_url }}" 
+        <img src="{{ '/images/' | append: tape.front_image | relative_url }}"
+             class="tape-image-native"
              alt="{{ tape.title }}">
       {% endif %}
       {% else %}
