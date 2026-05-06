@@ -7,6 +7,8 @@
   <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
   
   <link rel="stylesheet" href="{{ '/assets/styles/main.css' | relative_url }}">
+  <link rel="icon" href="{{ '/assets/images/favicon.ico' | relative_url }}">
+
   
   {% seo %}
   {% feed_meta %}
@@ -24,15 +26,21 @@
   </style>
 </head>
 <body>
-  <nav class="main-nav">
-    <div class="container">
-      <a href="{{ '/' | relative_url }}" class="nav-logo">{{ site.title }}</a>
-      <ul class="nav-links">
-        <li><a href="{{ '/' | relative_url }}">Catalog</a></li>
-        <li><a href="{{ '/request.html' | relative_url }}">Request Tapes</a></li>
-      </ul>
-    </div>
-  </nav>
+<nav class="main-nav">
+  <div class="container nav-container">
+    <a href="{{ '/' | relative_url }}" class="nav-logo">{{ site.title }}</a>
+
+    <!-- ✅ Hamburger button -->
+    <button class="nav-toggle" aria-label="Toggle menu">
+      ☰
+    </button>
+
+    <ul class="nav-links">
+      <li><a href="{{ '/' | relative_url }}">Catalog</a></li>
+      <li><a href="{{ '/request.html' | relative_url }}">Request Tapes</a></li>
+    </ul>
+  </div>
+</nav>
   
   <main class="container">
     {{ content }}
@@ -46,3 +54,5 @@
   </footer>
 </body>
 </html>
+
+<script src="{{ '/assets/scripts/nav.js' | relative_url }}"></script>

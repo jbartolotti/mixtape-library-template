@@ -1,5 +1,6 @@
 ---
 title: "Midnight Dreaming"
+is_sample: true
 author: "self"
 date_recorded: "A 2025-01-01, B 2025-06-02"
 length: "90 minutes"
@@ -11,8 +12,14 @@ description: "A hazy journey through reverb-soaked guitars and ethereal vocals. 
 requestable: true
 tape_type: "Type II"
 dolby: "Dolby B"
-front_image: "sample_images/midnight-dreaming-front.jpg"
-back_image: "sample_images/midnight-dreaming-back.jpg"
+
+images:
+  - file: sample-midnight-dreaming-front.jpg
+    label: Front
+
+  - file: sample-midnight-dreaming-back.jpg
+    label: Back
+
 tracklist:
   - title: "Side A"
     tracks:

@@ -3,11 +3,15 @@ layout: default
 title: Mixtape Library
 ---
 
-{% if site.tapes.size > 0 %}
+{% assign real_tapes = site.tapes | where_exp: "t", "t.is_sample != true" %}
+{% assign sample_tapes = site.tapes | where: "is_sample", true %}
+
+{% if site.data.settings.site.display_samples %}
   {% assign sorted_tapes = site.tapes | sort: "title" %}
 {% else %}
-  {% assign sorted_tapes = site.sample_tapes | sort: "title" %}
+  {% assign sorted_tapes = real_tapes | sort: "title" %}
 {% endif %}
+
 {% assign all_tags = "" %}
 {% for tape in sorted_tapes %}
   {% if tape.tags %}
@@ -22,6 +26,7 @@ title: Mixtape Library
 {% assign unique_tags = all_tags | split: "|" | sort | uniq %}
 
 <div class="header-section">
+  <br />
   <h1>{{ site.data.settings.owner.name }}'s Mixtape Library</h1>
   <p class="bio">{{ site.data.settings.owner.bio }}</p>
   
@@ -68,7 +73,11 @@ title: Mixtape Library
   </div>
   
   {% if site.data.settings.site.show_tape_count %}
-  <p class="tape-count">{{ site.tapes.size }} tapes in collection</p>
+  <p class="tape-count">{{ sorted_tapes.size }} tapes in collection</p>
+  {% endif %}
+  
+  {% if site.tapes.size == 0 %}
+  <p class="tape-count">Showing sample tapes. Add your own to replace them.</p>
   {% endif %}
 </div>
 
@@ -77,23 +86,24 @@ title: Mixtape Library
   <div class="tape-grid">
     {% for tape in sorted_tapes %}
     <div class="tape-card" data-tape-id="{{ tape.slug }}" data-tags="{% if tape.tags %}{% for tag in tape.tags %}{% assign clean_tag = tag | strip | downcase %}{% if clean_tag != '' %}{{ clean_tag }}|{% endif %}{% endfor %}{% endif %}">
-      <div class="tape-card-inner">
+      
+
+      <div class="tape-card-inner">       
         <a href="{{ tape.url | relative_url }}" class="tape-image-link">
           <div class="tape-image-wrapper">
-            {% if tape.front_image %}
-            {% if tape.collection == 'sample_tapes' %}
-              <img src="{{ tape.front_image | relative_url }}" 
-                   alt="{{ tape.title }}" 
-                   class="tape-image tape-image-grid js-grid-image">
+            <!-- {% assign image_base = '/assets/tapes/' | append: tape.slug | append: '/' %} -->
+            {% assign image_base = '/assets/' | append: tape.collection | append: '/' | append: tape.slug | append: '/' %}
+
+
+            {% if tape.images and tape.images.size > 0 %}
+              {% assign first_image = tape.images.first %}
+              <img src="{{ image_base | append: first_image.file | relative_url }}"
+                  alt="{{ tape.title }} - {{ first_image.label }}"
+                  class="tape-image tape-image-grid js-grid-image">
             {% else %}
-              <img src="{{ '/images/' | append: tape.front_image | relative_url }}" 
-                   alt="{{ tape.title }}" 
-                   class="tape-image tape-image-grid js-grid-image">
-            {% endif %}
-            {% else %}
-            <div class="tape-placeholder">
-              <span>No Image</span>
-            </div>
+              <div class="tape-placeholder-list">
+                <span>No Image.</span>
+              </div>
             {% endif %}
             
             <div class="tape-hover-overlay">
@@ -103,7 +113,13 @@ title: Mixtape Library
             </div>
           </div>
         </a>
-        
+
+        {% if tape.is_sample %}
+        <div class="tape-sample-overlay">
+          <img src="{{ '/assets/images/sample.png' | relative_url }}" alt="{{ tape.title }} - {{ first_image.label }}">
+        </div>
+        {% endif %}
+
         <div class="tape-card-footer">
           <h3 class="tape-title">{{ tape.title }}</h3>
           <div class="tape-meta">
@@ -151,19 +167,23 @@ title: Mixtape Library
   {% for tape in sorted_tapes %}
   <div class="tape-list-item" data-tape-id="{{ tape.slug }}" data-tags="{% if tape.tags %}{% for tag in tape.tags %}{% assign clean_tag = tag | strip | downcase %}{% if clean_tag != '' %}{{ clean_tag }}|{% endif %}{% endfor %}{% endif %}">
     <div class="tape-list-image">
-      {% if tape.front_image %}
-      {% if tape.collection == 'sample_tapes' %}
-        <img src="{{ tape.front_image | relative_url }}"
-             class="tape-image-native"
-             alt="{{ tape.title }}">
+      <!-- {% assign image_base = '/assets/tapes/' | append: tape.slug | append: '/' %} -->
+      {% assign image_base = '/assets/' | append: tape.collection | append: '/' | append: tape.slug | append: '/' %}
+
+      {% if tape.images and tape.images.size > 0 %}
+        {% assign first_image = tape.images.first %}
+        <img src="{{ image_base | append: first_image.file | relative_url }}"
+            alt="{{ tape.title }} - {{ first_image.label }}"
+            class="tape-image tape-image-grid js-grid-image">
       {% else %}
-        <img src="{{ '/images/' | append: tape.front_image | relative_url }}"
-             class="tape-image-native"
-             alt="{{ tape.title }}">
+        <div class="tape-placeholder-list">
+          <span>No Image.</span>
+        </div>
       {% endif %}
-      {% else %}
-      <div class="tape-placeholder-list">
-        <span>No Image</span>
+
+      {% if tape.is_sample %}
+      <div class="tape-sample-overlay">
+        <img src="{{ '/assets/images/sample.png' | relative_url }}" alt="{{ tape.title }} - {{ first_image.label }}">
       </div>
       {% endif %}
     </div>

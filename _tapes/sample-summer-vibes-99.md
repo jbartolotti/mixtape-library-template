@@ -1,5 +1,6 @@
 ---
 title: "Summer Vibes '99"
+is_sample: true
 author: "unknown"
 date_recorded: "obtained 2023-06"
 length: "90 minutes"
@@ -13,8 +14,14 @@ description: "Found at a yard sale! A time capsule of late 90s pop hits. Someone
 requestable: false
 tape_type: "Type I"
 dolby: "none"
-front_image: "sample_images/summer-vibes-99-front.jpg"
-back_image: "sample_images/summer-vibes-99-back.jpg"
+
+images:
+  - file: sample-summer-vibes-99-front.jpg
+    label: Front
+
+  - file: sample-summer-vibes-99-front.jpg
+    label: sample-summer-vibes-99-back.jpg
+    
 tracklist:
   - "TLC - No Scrubs"
   - "Backstreet Boys - I Want It That Way"
