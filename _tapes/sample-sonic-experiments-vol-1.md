@@ -1,5 +1,6 @@
 ---
 title: "Sonic Experiments Vol. 1"
+is_sample: true
 author: "self"
 date_recorded: "2024"
 length: "120 minutes"
@@ -11,7 +12,11 @@ description: "An extended exploration of texture and space. Minimal beats, field
 requestable: true
 tape_type: "Type II"
 dolby: "Dolby B"
-front_image: "sonic-experiments-front.jpg"
+
+images:
+  - file: sample-sonic-experiments-front.jpg
+    label: Front
+
 back_image: ""
 tracklist:
   - "Brian Eno - An Ending (Ascent)"

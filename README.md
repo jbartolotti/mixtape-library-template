@@ -69,8 +69,11 @@ description: "A hazy journey through reverb-soaked guitars..."
 requestable: true
 tape_type: "Type II"
 dolby: "Dolby B"
-front_image: "midnight-dreaming-front.jpg"
-back_image: "midnight-dreaming-back.jpg"
+images:
+  - file: sample-midnight-dreaming-front.jpg
+    label: Front
+  - file: sample-midnight-dreaming-back.jpg
+    label: Back
 tracklist:
   - title: "Side A"
     tracks:
@@ -88,7 +91,7 @@ Use `date_recorded` for date text (avoid Jekyll's reserved `date` key). `trackli
 
 ### 4. Add Images
 
-Save cover photos to `/images/` matching your tape filenames. Up to two images per tape are supported, and both vertical and horizontal artwork are supported. Leave the back_image field blank in the tape markdown file to omit.
+Save cover photos to `/assets/tapes/midnight-dreaming-front/` matching your tape filenames. Multiple images are supported.
 
 Grid cards always display art in a vertical orientation. If you upload horizontal artwork, the grid view rotates it automatically while the list view and tape detail page display the original orientation.
 
@@ -96,10 +99,8 @@ Grid cards always display art in a vertical orientation. If you upload horizonta
 
 - **`_data/settings.yml`** - Your info, theme colors, exchange policies
 - **`_data/tape_options.yml`** - Available tape types, Dolby options, genres
-- **`_tapes/`** - Add your personal tape markdown files here (takes precedence over `sample_tapes/`)
-- **`sample_tapes/`** - Example tapes; only used if `_tapes/` is empty
-- **`images/`** - Add your personal tape cover photos here
-- **`sample_images/`** - Example images; used only by sample tapes
+- **`_tapes/`** - Add your personal tape markdown files here
+- **`assets/tapes/`** - Add your personal image files here
 
 ## Local Development (Optional)
 
@@ -121,16 +122,15 @@ git fetch upstream
 git merge upstream/main
 ```
 
-**Important:** If you've added tapes to `_tapes/`, the template will automatically use those instead of the sample tapes in `sample_tapes/`. This means:
+**Important:** If you've added tapes to `_tapes/`, the template will automatically use those. This means:
 - Your personal tapes are never overwritten during merges
-- Template updates to `sample_tapes/` won't conflict with your content
-- If you delete all your personal tapes, the catalog will display `sample_tapes/` as a fallback
+- If you delete all your personal tapes, the catalog will display sample tapes only if `display_samples` is set to `true` in `settings.yml`
 
 ## Troubleshooting
 
 **Site not building?** Check Settings → Pages → Actions tab for errors
 
-**Images not showing?** Verify filenames match exactly (case-sensitive) and are in `/images/`
+**Images not showing?** Verify filenames match exactly (case-sensitive) and are in `/assets/tapes/`
 
 **Request form broken?** Open browser console (F12) to check for JavaScript errors
 

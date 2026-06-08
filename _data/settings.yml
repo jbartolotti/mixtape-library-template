@@ -59,6 +59,6 @@ theme:
 # Site metadata
 site:
   show_tape_count: true
-  tapes_per_row: 4  # For catalog grid view
   enable_search: true
   enable_filtering: true
+  display_samples: true

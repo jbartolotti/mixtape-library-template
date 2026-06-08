@@ -164,6 +164,58 @@ main {
   text-decoration: none;
 }
 
+/* Layout */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Default (desktop) */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+
+/* Hide toggle on desktop */
+.nav-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ✅ Mobile styles */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: var(--color-white);
+
+    flex-direction: column;
+    padding: 1rem;
+
+    display: none; /* hidden by default */
+  }
+
+  .nav-links.show {
+    display: flex; /* shown when toggled */
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+    text-align: right;
+  }
+}
+
 /* ========================================
    Header Section
    ======================================== */
@@ -372,6 +424,16 @@ main {
   object-fit: cover;
 }
 
+.tape-card-inner {
+  position: relative;
+}
+
+.tape-sample-overlay {
+  position: absolute;
+  top:0;
+  left: 0;
+}
+
 .tape-image-grid {
   transition: transform var(--transition-speed);
 }
@@ -557,6 +619,7 @@ main {
 .tape-list-image {
   display: flex;
   align-items: flex-start;
+  position: relative;
 }
 
 .tape-list-image img {
@@ -662,6 +725,7 @@ main {
 
 .btn-primary:hover {
   background-color: var(--color-primary-dark);
+  color: var(--color-white);
   transform: translateY(-2px);
   box-shadow: var(--shadow-medium);
   text-decoration: none;

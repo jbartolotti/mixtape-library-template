@@ -15,10 +15,8 @@ url: ""
 collections:
   tapes:
     output: true
-    permalink: /tape/:slug/
-  sample_tapes:
-    output: true
-    permalink: /tape/:slug/
+    permalink: /tapes/:slug/
+    sort_by: title
 
 # Defaults
 defaults:
@@ -27,11 +25,7 @@ defaults:
       type: "tapes"
     values:
       layout: "tape"
-  - scope:
-      path: ""
-      type: "sample_tapes"
-    values:
-      layout: "tape"
+
 
 # Build settings
 markdown: kramdown

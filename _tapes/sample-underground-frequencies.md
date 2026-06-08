@@ -1,5 +1,6 @@
 ---
 title: "Underground Frequencies"
+is_sample: true
 author: "self"
 length: "60 minutes"
 genre: "Post-Punk / New Wave"
@@ -11,8 +12,11 @@ description: "Angular guitars, driving basslines, and detached vocals from the p
 requestable: true
 tape_type: "Type I"
 dolby: "none"
-front_image: "underground-frequencies-front.jpg"
-back_image: ""
+
+images:
+  - file: sample-underground-frequencies-front.jpg
+    label: Front
+
 tracklist:
   - "Joy Division - Transmission"
   - "Bauhaus - Bela Lugosi's Dead"
